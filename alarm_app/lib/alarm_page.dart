@@ -137,6 +137,9 @@ class _AlarmPageState extends State<AlarmPage> {
                                   color: Colors.white,
                                   onPressed: () {
                                     _alarmHelper.delete(alarm.id);
+                                    setState((){
+                                      _alarms=_alarmHelper.getAlarms();
+                                    });
                                   },
                                 ),
                               ],
@@ -254,6 +257,10 @@ class _AlarmPageState extends State<AlarmPage> {
                                                       .insertAlarm(alarmInfo);
                                                   // scheduleAlarm(
                                                   //     scheduleAlarmDateTime);
+                                                  setState((){
+                                                    _alarms=_alarmHelper.getAlarms();
+                                                  });
+
                                                 },
                                                 icon: Icon(Icons.alarm),
                                                 label: Text('Save'),
